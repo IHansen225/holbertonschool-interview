@@ -10,14 +10,16 @@ def canUnlockAll(boxes):
     """
         Check if all boxes can be unlocked
     """
-    opened = {0}
-    changed = True
-    while changed and len(opened) != len(boxes):
-        changed = False
-        for i in range(len(boxes)):
-            if i in opened:
-                for j in range(len(boxes[i])):
-                    if boxes[i][j] not in opened:
-                        opened.add(boxes[i][j])
-                        changed = True
-    return False if len(opened) != len(boxes) else True
+    n = len(boxes)
+    unlocked = [False] * n  # keep track of whether a box is unlocked or not
+    unlocked[0] = True  # the first box is already unlocked
+    stack = [0]  # start with the first box
+
+    while stack:
+        box = stack.pop()
+        for key in boxes[box]:
+            if key >= 0 and key < n and not unlocked[key]:
+                unlocked[key] = True
+                stack.append(key)
+
+    return all(unlocked)
