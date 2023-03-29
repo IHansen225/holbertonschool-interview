@@ -22,4 +22,4 @@ listint_t *insert_node(listint_t **head, int number) {
     next->next = nelem;
 
     return (nelem);
-};
+}
