@@ -1,15 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "lists.h"
 
 listint_t *insert_node(listint_t **head, int number) {
     
-    listint_t *nelem, *next, *prev = NULL;
+    listint_t *nelem, *next = NULL;
 
     if (!head) 
         return NULL;
     next = *head;
     while (next && next->n < number) {
         next = next->next;
-    };
+    }
     if (!next) 
         return NULL;
     nelem = malloc(sizeof(listint_t)); 
