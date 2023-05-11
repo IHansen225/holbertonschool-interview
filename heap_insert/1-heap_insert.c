@@ -9,11 +9,11 @@
  * Return: pointer to the inserted node, or NULL on failure
  */
 
-binary_tree_t *heap_insert(binary_tree_t **root, int value)
+heap_t *heap_insert(heap_t **root, int value)
 {
-    binary_tree_t *new_node = malloc(sizeof(binary_tree_t));
-    binary_tree_t *current = *root;
-    binary_tree_t *parent = NULL;
+    heap_t *new_node = malloc(sizeof(heap_t));
+    heap_t *current = *root;
+    heap_t *parent = NULL;
 
     if (new_node == NULL)
     {
