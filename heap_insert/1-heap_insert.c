@@ -36,6 +36,7 @@ void heapify(heap_t *node)
 heap_t *heap_insert(heap_t **root, int value)
 {
 	heap_t *new_node = malloc(sizeof(heap_t));
+	heap_t *current = NULL;
 
 	if (new_node == NULL)
 		return (NULL);
@@ -51,7 +52,7 @@ heap_t *heap_insert(heap_t **root, int value)
 		return (new_node);
 	}
 
-	heap_t *current = *root;
+	current = *root;
 	while (current->left != NULL)
 		current = current->left;
 
