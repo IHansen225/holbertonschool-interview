@@ -35,7 +35,6 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3]) {
 
     /* Topple the unstable cells until the sandpile is stable */
     while (!is_stable(grid1)) {
-        printf("Unstable sandpile:\n");
         for (i = 0; i < 3; i++) {
             for (j = 0; j < 3; j++) {
                 printf("%d ", grid1[i][j]);
